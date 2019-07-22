@@ -8,6 +8,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header-footer/header/header.component';
 import { CustomerDetailComponent } from './components/customer/customer-detail/customer-detail.component';
+// import angular material animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { CustomerDetailComponent } from './components/customer/customer-detail/c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
 
     RouterModule.forRoot([
         { path: '', component: CustomerListComponent },

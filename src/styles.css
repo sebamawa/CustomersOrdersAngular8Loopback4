@@ -2,6 +2,8 @@
 
 /* Global Styles */
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;
@@ -76,7 +78,7 @@ label {
 }
 
 /* Button */
-.button, button {
+/* .button, button {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
@@ -86,9 +88,9 @@ label {
   background-color: #1976d2;
   color: white;
   border: none;
-}
+} */
 
-.button:hover, button:hover {
+/* .button:hover, button:hover {
   opacity: 0.8;
   font-weight: normal;
 }
@@ -96,7 +98,7 @@ label {
 .button:disabled, button:disabled {
   opacity: 0.5;
   cursor: auto;
-}
+} */
 
 /* Fancy Button */
 
