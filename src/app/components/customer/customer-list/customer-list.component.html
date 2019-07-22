@@ -1,0 +1,9 @@
+<h2>Customers</h2>
+
+<div class="customer-card" *ngFor='let customer of customers; index as customerId'>
+  <h3>
+    <a [name]='customer.name' [routerLink]="['/customers', customerId]">
+      {{ customer.name }} - {{ customer.telephone }}
+    </a>
+  </h3>
+</div>
