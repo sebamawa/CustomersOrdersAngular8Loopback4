@@ -11,6 +11,9 @@ import { CustomerService } from '../../../services/customer.service';
 })
 export class CustomerListComponent implements OnInit {
   customers: Customer[];
+  auxCustomers: Customer[];
+  displayedColumns: string[] = ['name', 'telephone'];
+
   constructor(
       private customerService: CustomerService,
   ) {
@@ -22,12 +25,22 @@ export class CustomerListComponent implements OnInit {
           .subscribe(
               customers => {
                 this.customers = customers;
+                this.auxCustomers = this.customers;
               }
           );
+  }
+
+  applyFlter(filterValue: string) {
+    this.auxCustomers = this.auxCustomers.filter(res => res.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()));
+    if (filterValue === '') {
+        this.auxCustomers = this.customers;
+    }
   }
 
   ngOnInit() {
       this.getCustomers();
   }
-
 }
+
+
+
