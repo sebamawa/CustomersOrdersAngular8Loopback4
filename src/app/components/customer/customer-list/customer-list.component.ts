@@ -12,12 +12,14 @@ import { CustomerService } from '../../../services/customer.service';
 export class CustomerListComponent implements OnInit {
   customers: Customer[];
   auxCustomers: Customer[];
-  displayedColumns: string[] = ['name', 'telephone'];
+  // displayedColumns: string[] = ['name', 'telephone']; // para angular mat-table
+  loading: boolean;
 
   constructor(
       private customerService: CustomerService,
   ) {
         console.log('Instancia de customer-list');
+        this.loading = true;
    }
 
   private getCustomers(): void {
@@ -26,7 +28,12 @@ export class CustomerListComponent implements OnInit {
               customers => {
                 this.customers = customers;
                 this.auxCustomers = this.customers;
-              }
+                this.loading = false;
+          },
+            err => {
+              this.loading = false;
+              alert('Error en la consulta');
+            }
           );
   }
 

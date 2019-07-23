@@ -8,13 +8,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header-footer/header/header.component';
 import { CustomerDetailComponent } from './components/customer/customer-detail/customer-detail.component';
-// import angular material modules
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+
+// custom module angular material
+import { CustomMaterialModule } from './custom.material.module';
 
 @NgModule({
   declarations: [
@@ -27,15 +23,11 @@ import { MatInputModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // angular material moduls
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatListModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
 
+    // cutom module angular material
+    CustomMaterialModule,
+
+    // routes
     RouterModule.forRoot([
         { path: '', component: CustomerListComponent },
         { path: 'customers/:customerId', component: CustomerDetailComponent },
