@@ -18,7 +18,7 @@ export class CustomerListComponent implements OnInit {
   constructor(
       private customerService: CustomerService,
   ) {
-        console.log('Instancia de customer-list');
+        // console.log('Instancia de customer-list');
         this.loading = true;
    }
 

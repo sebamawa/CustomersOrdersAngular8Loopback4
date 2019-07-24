@@ -1,1 +1,6 @@
-<p>customer-detail works --!</p>
+<p>Customer</p>
+<div *ngIf="customer">
+    <p> {{ customer.name }} --- {{ customer.telephone }}  </p>
+    
+    <button mat-fab color="warn" (click)="deleteCustomer()">Delete</button>
+</div>

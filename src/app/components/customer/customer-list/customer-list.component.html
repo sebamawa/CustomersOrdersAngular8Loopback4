@@ -3,23 +3,23 @@
 <!-- mensaje de carga -->
 <div *ngIf='loading'>loading...</div>
 
-<ng-container *ngIf='customers?.length > 0 else tagNotCustomers'>
-  <div class="flex-container">
+<!-- campo de filtro y boton para agregar customer -->
+<div class="flex-container">
   <!-- campo de form de angular material para filtrar customers por nombre -->
     <mat-form-field>
         <input matInput (keyup)="applyFlter($event.target.value)" placeholder="Filter">
     </mat-form-field>
     <a mat-fab routerLink="customers/customers-create"><mat-icon>add</mat-icon></a>
-  </div>
+</div>
 
+<ng-container *ngIf='customers?.length > 0 else tagNotCustomers'>
   <!-- lista de customers -->
   <mat-nav-list>
-    <a *ngFor='let customer of auxCustomers; index as customerId' [name]='customer.name' [routerLink]="['/customers', customerId]">
+    <a *ngFor='let customer of auxCustomers; index as customerId' [name]='customer.name' [routerLink]="['/customers', customer.id.toString()]">
       <mat-list-item>
             <div class="flex-container">
                 <div>{{ customer.name }}</div>
-                <div><mat-icon>phone</mat-icon></div>
-                <div>{{customer.telephone}}</div>
+                <div><mat-icon>phone</mat-icon> {{customer.telephone}}</div>
             </div>
       </mat-list-item>
     </a>
@@ -29,6 +29,8 @@
 <ng-template #tagNotCustomers>
 
 </ng-template>
+
+<!-- <app-customer-detail [customer2]="customer"></app-customer-detail>  -->
 
 
 
