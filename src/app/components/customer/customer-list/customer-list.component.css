@@ -2,3 +2,17 @@
     display: flex;
     align-items: right;
 }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-list-item div {
+  width: 100%;
+}
