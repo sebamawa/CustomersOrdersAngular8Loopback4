@@ -144,3 +144,9 @@ a:hover {
   border-radius: 2px;
   background-color: #EEEEEE;
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

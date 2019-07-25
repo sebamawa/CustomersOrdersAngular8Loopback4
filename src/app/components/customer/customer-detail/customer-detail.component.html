@@ -1,6 +1,25 @@
-<p>Customer</p>
+<h2>Customer</h2>
 <div *ngIf="customer">
-    <p> {{ customer.name }} --- {{ customer.telephone }}  </p>
-    
+  <div class="flex-container" style="background-color:khaki;">
+    <h3>{{ customer.name }}</h3>
+    <h3><mat-icon>phone</mat-icon>{{ customer.telephone }}</h3>
+    <h3><mat-icon>home</mat-icon>{{ customer.address }}</h3>
     <button mat-fab color="warn" (click)="deleteCustomer()">Delete</button>
+  </div>
 </div>
+
+<ng-container *ngIf='ordersByCustomer?.length > 0'>
+
+    <mat-nav-list>
+      <a *ngFor='let order of ordersByCustomer; index as customerId'>
+        <mat-list-item>
+              <div class="flex-container">
+                  <h3>{{ order.date }}</h3>------------------
+                  <!-- <h3><mat-icon>perm_identity</mat-icon></h3> -->
+                  <h3>{{order.description}}</h3>-------------
+                  <h3>{{order.total}}</h3>
+              </div>
+        </mat-list-item>
+      </a>
+    </mat-nav-list>
+  </ng-container>

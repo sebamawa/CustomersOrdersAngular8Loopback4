@@ -18,8 +18,9 @@
     <a *ngFor='let customer of auxCustomers; index as customerId' [name]='customer.name' [routerLink]="['/customers', customer.id.toString()]">
       <mat-list-item>
             <div class="flex-container">
-                <div>{{ customer.name }}</div>
-                <div><mat-icon>phone</mat-icon> {{customer.telephone}}</div>
+                <h3>{{ customer.name }}</h3>
+                <!-- <h3><mat-icon>perm_identity</mat-icon></h3> -->
+                <h3><mat-icon>phone</mat-icon> {{customer.telephone}}</h3>
             </div>
       </mat-list-item>
     </a>

@@ -52,7 +52,7 @@ export class CustomerService {
       const urlDeleteCustomer = `${this.baseUrlApi}/customers/${id}`;
 
       return this.http.delete<Customer>(urlDeleteCustomer, httpOptions).pipe(
-          tap(_, '')
+          // tap(_, '')
           //catchError()
       );
   }
