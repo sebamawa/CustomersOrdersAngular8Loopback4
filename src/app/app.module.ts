@@ -15,6 +15,7 @@ import { CustomerCreateComponent } from './components/customer/customer-create/c
 // custom module angular material
 import { CustomMaterialModule } from './custom.material.module';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { OrderCreateComponent } from './components/order/order-create/order-create.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
     CustomerDetailComponent,
     CustomerCreateComponent,
     OrderListComponent,
+    OrderCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
         { path: 'customers/:customerId', component: CustomerDetailComponent },
 
         // orders
-        { path: 'orders', component: OrderListComponent }
+        { path: 'orders', component: OrderListComponent },
+        { path: 'orders/order-create', component: OrderCreateComponent }
     ])
   ],
   providers: [],

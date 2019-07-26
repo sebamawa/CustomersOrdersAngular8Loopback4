@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
 import { Customer } from 'src/app/models/customer';
 import { OrderService } from 'src/app/services/order.service';
+import { DateFormating } from 'src/app/utility/utility-methods-dates';
 
 @Component({
   selector: 'app-customer-detail',
@@ -46,6 +47,10 @@ export class CustomerDetailComponent implements OnInit {
                 console.log(data);
                 this.ordersByCustomer = data;
             });
+  }
+
+  getOrderDateFormated(dateOrderString): string {
+      return DateFormating.getDateFormated(dateOrderString, 'es');
   }
 
   ngOnInit() {

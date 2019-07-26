@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/models/order';
+import { DateFormating } from 'src/app/utility/utility-methods-dates';
 
 @Component({
   selector: 'app-order-list',
@@ -30,6 +31,10 @@ export class OrderListComponent implements OnInit {
                 }
           );
   }
+
+  getOrderDateFormated(dateOrderString): string {
+    return DateFormating.getDateFormated(dateOrderString, 'es');
+}
 
   ngOnInit() {
       this.getOrders();

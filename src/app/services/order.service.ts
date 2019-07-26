@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Order } from '../models/order';
+import { Observable } from 'rxjs';
+
+// para post http (add order)
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +34,11 @@ export class OrderService {
           // tap(),
           // catchError()
       );
+  }
+
+  addOrder(order: Order): Observable<Order> {
+      console.log(order);
+      const urlOrders = `${this.baseUrlApi}/orders`;
+      return this.http.post<Order>(urlOrders, order, httpOptions).pipe();
   }
 }

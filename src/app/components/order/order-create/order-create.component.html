@@ -1,0 +1,28 @@
+<h2>Create Order</h2>
+
+<form [formGroup]="orderFormModel" (ngSubmit)="createOrder(orderFormModel.value)">
+    <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+
+    <mat-form-field>
+        <input matInput type="date" placeholder="Date" formControlName="date">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="CustomerId" formControlName="customerId">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Description" formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" placeholder="Total" formControlName="total">
+    </mat-form-field>
+    <br><br>
+
+    <button mat-flat-button color="primary" type="submit">Add Order</button>
+</form>

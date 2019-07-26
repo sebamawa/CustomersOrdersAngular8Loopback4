@@ -1,6 +1,6 @@
 export class Order {
     id: number;
-    date: Date;
+    date: string;
     customerId: number;
     description: string;
     total: number;

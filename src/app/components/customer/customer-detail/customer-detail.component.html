@@ -14,10 +14,10 @@
       <a *ngFor='let order of ordersByCustomer; index as customerId'>
         <mat-list-item>
               <div class="flex-container">
-                  <h3>{{ order.date }}</h3>------------------
+                  <h3>{{ getOrderDateFormated(order.date) }}</h3>------------------
                   <!-- <h3><mat-icon>perm_identity</mat-icon></h3> -->
                   <h3>{{order.description}}</h3>-------------
-                  <h3>{{order.total}}</h3>
+                  <h3>{{ order.total }}</h3>
               </div>
         </mat-list-item>
       </a>

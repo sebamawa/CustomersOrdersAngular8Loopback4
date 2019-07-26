@@ -1,6 +1,6 @@
 <div class="flex-container">
     <h2>Orders</h2>
-    <a mat-fab routerLink="orders/order-create"><mat-icon>add</mat-icon></a>
+    <a mat-fab routerLink="/orders/order-create"><mat-icon>add</mat-icon></a>
 </div>
 
 <!-- mensaje de carga -->
@@ -12,9 +12,9 @@
     <a *ngFor='let order of orders; index as customerId' [name]='order.description' [routerLink]="['/customers', order.id.toString()]">
       <mat-list-item>
             <div class="flex-container">
-                <h3>{{ order.date }}</h3>
+                <h3>{{ getOrderDateFormated(order.date) }}</h3> --------
                 <!-- <h3><mat-icon>perm_identity</mat-icon></h3> -->
-                <h3>{{ order.description }}</h3>
+                <h3>{{ order.description }}</h3> ----------
                 <h3>{{ order.total }}</h3>
             </div>
       </mat-list-item>
