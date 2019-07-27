@@ -27,8 +27,10 @@ export class CustomerCreateComponent implements OnInit {
       // console.log(customerFormData);
       this.customerService.addCustomer(customerFormData)
           .subscribe(customer => {
-              console.log('Cliente agregado');
+              alert('Cliente agregado');
           });
+
+      this.customerFormModel.reset();
    }
 
   ngOnInit() {

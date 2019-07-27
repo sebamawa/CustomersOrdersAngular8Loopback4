@@ -2,11 +2,11 @@
 
 <form [formGroup]="customerFormModel" (ngSubmit)="createCustomer(customerFormModel.value)">
     <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name">
+      <input matInput required placeholder="Name" formControlName="name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Telephone" formControlName="telephone">
+      <input matInput required placeholder="Telephone" formControlName="telephone">
     </mat-form-field>
 
     <mat-form-field>

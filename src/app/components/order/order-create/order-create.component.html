@@ -2,7 +2,7 @@
 
 <form [formGroup]="orderFormModel"  (ngSubmit)="createOrder(orderFormModel.value)">
     <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+        <input matInput [matDatepicker]="picker" required placeholder="Choose a date" formControlName="date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -29,11 +29,11 @@
     <p>You selected: {{selectedValue}}</p>
 
     <mat-form-field>
-        <input matInput placeholder="Description" formControlName="description">
+        <input matInput required placeholder="Description" formControlName="description">
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput type="number" placeholder="Total" formControlName="total">
+        <input matInput type="number" required placeholder="Total" formControlName="total">
     </mat-form-field>
 
     <br><br>

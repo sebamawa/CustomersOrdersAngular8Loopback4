@@ -24,7 +24,7 @@ export class OrderCreateComponent implements OnInit {
           date: '',
           customerId: 0,
           description: '',
-          total: 0
+          total: ''
       });
    }
 
@@ -32,7 +32,7 @@ export class OrderCreateComponent implements OnInit {
       console.log(orderFormData);
 
       // parse string customerId (buscar hacerlo desde la view)
-      let customerId: number = parseInt(orderFormData.customerId, 10); 
+      let customerId: number = parseInt(orderFormData.customerId, 10);
       console.log(customerId);
       orderFormData.customerId = customerId;
 
