@@ -6,14 +6,14 @@
 <!-- mensaje de carga -->
 <div *ngIf='loading'>loading...</div>
 
-<ng-container *ngIf='orders?.length > 0 else tagNotOrders'>
-  <!-- lista de customers -->
+<!-- <ng-container *ngIf='orders?.length > 0 else tagNotOrders'>
+  // lista de customers 
   <mat-nav-list>
     <a *ngFor='let order of orders; index as customerId' [name]='order.description' [routerLink]="['/customers', order.id.toString()]">
       <mat-list-item>
             <div class="flex-container">
                 <h3>{{ getOrderDateFormated(order.date) }}</h3> --------
-                <!-- <h3><mat-icon>perm_identity</mat-icon></h3> -->
+                <h3><mat-icon>perm_identity</mat-icon></h3>
                 <h3>{{ order.description }}</h3> ----------
                 <h3>{{ order.total }}</h3>
             </div>
@@ -24,4 +24,43 @@
 
 <ng-template #tagNotCustomers>
 
-</ng-template>
+</ng-template> -->
+
+<!-- grid de orders -->
+<!-- filter -->
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<!-- grid -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ getOrderDateFormated(element.date)}}</td>
+    </ng-container>
+
+  <!-- customerId Column -->
+  <ng-container matColumnDef="customerId">
+    <th mat-header-cell *matHeaderCellDef> CustomerId </th>
+    <td mat-cell *matCellDef="let element"> {{ element.customerId }} </td>
+  </ng-container>  
+  
+  <!-- description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+  </ng-container> 
+  
+  <!-- total Column -->
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef> Total </th>
+    <td mat-cell *matCellDef="let element"> {{ element.total }} </td>
+  </ng-container>  
+
+    <!-- Definitions for header and row (no footer) -->  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
